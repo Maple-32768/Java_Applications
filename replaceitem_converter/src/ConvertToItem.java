@@ -3,8 +3,8 @@ import java.util.List;
 
 /**
  * replaceitemコマンド変換クラス
- * @author <a href= "https://twitter.com/maple32768" target="_blank" >Maple32768</a>
- * @version 1.1
+ * @author <a href= "https://twitter.com/maple_osg" target="_blank" >Maple32768</a>
+ * @version 1.2
  *
  */
 public class ConvertToItem {
@@ -94,7 +94,8 @@ public class ConvertToItem {
 			}else {
 				item = new StringBuilder("#INVALID COMMAND");
 			}
-			if(convertInNBT && item.toString().contains("replaceitem ")) {
+
+			while(convertInNBT && item.toString().contains("replaceitem ")) {
 				item = new StringBuilder(convert(item.toString()));
 			}
 
@@ -108,7 +109,7 @@ public class ConvertToItem {
 	 * Itemコマンド取得メソッド<br>
 	 * 渡されたコマンドをreplaceitemコマンドとして解釈し、itemコマンドで返します。
 	 * @return Itemコマンド
-	 * @version 1.4
+	 * @version 1.5
 	 */
 	public String getAsItem() {
 		return getAsItem(false);
@@ -119,7 +120,7 @@ public class ConvertToItem {
 	 * 渡されたコマンドをreplaceitemコマンドとして解釈し、itemコマンドで返します。
 	 * @param convertInNBT NBTの中身まで変換するかどうかを指定
 	 * @return Itemコマンド
-	 * @version 1.4
+	 * @version 1.5
 	 */
 	public String getAsItem(boolean convertInNBT) {
 		return getAsItem(this.command, convertInNBT);
@@ -129,7 +130,7 @@ public class ConvertToItem {
 	 * Executeコマンド取得メソッド<br>
 	 * 渡されたコマンドをreplaceitemコマンドを含むexecuteコマンドとして解釈し、<br>itemコマンドを含むexecuteコマンドで返します。
 	 * @return Executeコマンド
-	 * @version 1.1
+	 * @version 1.3
 	 */
 	public String getAsExecute() {
 		return getAsExecute(false);
@@ -140,7 +141,7 @@ public class ConvertToItem {
 	 * 渡されたコマンドをreplaceitemコマンドを含むexecuteコマンドとして解釈し、<br>itemコマンドを含むexecuteコマンドで返します。
 	 * @param convertInNBT NBTの中身まで変換するかどうかを指定
 	 * @return Executeコマンド
-	 * @version 1.1
+	 * @version 1.3
 	 */
 	public String getAsExecute(boolean convertInNBT) {
 		StringBuilder result = new StringBuilder("");
@@ -202,6 +203,9 @@ public class ConvertToItem {
 			.append(converted)
 			.append(includingReplaceitem.substring(replaceEnd + beforeReplace.length()));
 		}
+		while(item.toString().contains("replaceitem ")) {
+			item = new StringBuilder(convert(item.toString()));
+		}
 		return item.toString();
 
 	}
@@ -210,7 +214,7 @@ public class ConvertToItem {
 	 * コマンド変換メソッド<br>
 	 * 渡されたコマンドがどのような形であっても、replaceitemをitemに変換して返します。
 	 * @return 変換されたコマンド
-	 * @version 1.0
+	 * @version 1.1
 	 */
 	public String convertForce() {
 		StringBuilder result = new StringBuilder("");

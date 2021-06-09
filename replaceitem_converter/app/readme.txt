@@ -16,4 +16,4 @@
 内部の処理をしているクラスはこちらで配布しています。
 https://github.com/Maple-32768/Java_Applications/blob/main/item_commands_come_on/src/ConvertToItem.java
 
-作者Twitter : https://twitter.com/maple32768
+作者Twitter : https://twitter.com/maple_osg
