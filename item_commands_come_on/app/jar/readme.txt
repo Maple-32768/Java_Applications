@@ -1,0 +1,2 @@
+入力されたMinecraftのreplaceitemコマンドをitemコマンドに変換するJavaアプリケーションです。
+使用するには、同じ階層のrun.cmdを実行して下さい。
