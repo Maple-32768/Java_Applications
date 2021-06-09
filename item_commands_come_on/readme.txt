@@ -11,3 +11,5 @@ clickEventやBlockEntityTagの中身などを置換したいときにお使い�
 改造、二次配布可です。ConvertToItem.javaが内部の処理をしています。
 詳しくは以下を参照してください
 https://maple-32768.github.io/Java_Applications/item_commands_come_on/doc/
+
+作者Twitter : https://twitter.com/maple32768
